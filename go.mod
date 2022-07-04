@@ -1,4 +1,4 @@
-module gun
+module github.com/spike014/gun
 
 go 1.17
 
