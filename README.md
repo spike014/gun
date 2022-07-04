@@ -9,7 +9,7 @@ Gun is a command line program, hot reloading your golang program.
 ## Install
 
 ```shell
-go install github.com/spike014/gun
+go install github.com/spike014/gun@latest
 ```
 
 ## Usge
