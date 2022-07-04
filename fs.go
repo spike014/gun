@@ -24,7 +24,7 @@ func checkIfIsNotGoProject(path string) bool {
 
 // getExcutePath 获取程序所在目录
 func getExcutePath() (string, error) {
-	ex, err := os.Executable()
+	ex, err := os.Getwd()
 	if err != nil {
 		log.Fatalln("Get program path ERROR:", err)
 		return "", err
