@@ -1,7 +1,7 @@
 package main
 
 import (
-	"fmt"
+	"log"
 	"path/filepath"
 )
 
@@ -11,7 +11,7 @@ const sign = `
 ██║  ███╗██║   ██║██╔██╗ ██║
 ██║   ██║██║   ██║██║╚██╗██║
 ╚██████╔╝╚██████╔╝██║ ╚████║
- ╚═════╝  ╚═════╝ ╚═╝  ╚═══╝  v0.1-beta
+ ╚═════╝  ╚═════╝ ╚═╝  ╚═══╝  v0.1.1-beta
 `
 
 var (
@@ -20,12 +20,8 @@ var (
 )
 
 func main() {
-	fmt.Print(sign, "\n")
+	log.Print(sign, "\n")
 	basePath, _ = getExcutePath()
-
-	if checkIfIsNotGoProject(basePath) {
-		panic("It is NOT a go project. Can NOT find main.go")
-	}
 
 	updateFilespath()
 	go watch()

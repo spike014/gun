@@ -1,7 +1,6 @@
 package main
 
 import (
-	"errors"
 	"io/fs"
 	"log"
 	"os"
@@ -18,10 +17,6 @@ var excludePath = map[string]struct{}{
 var filetypes = []string{".go", ".toml", ".json", ".ini"}
 var filepaths *[]string
 
-func checkIfIsNotGoProject(path string) bool {
-	return pathNotExists(filepath.Join(path, "main.go"))
-}
-
 // getExcutePath 获取程序所在目录
 func getExcutePath() (string, error) {
 	ex, err := os.Getwd()
@@ -29,12 +24,8 @@ func getExcutePath() (string, error) {
 		log.Fatalln("Get program path ERROR:", err)
 		return "", err
 	}
+	log.Println("Working on", ex)
 	return filepath.Dir(ex), nil
-}
-
-func pathNotExists(path string) bool {
-	_, err := os.Stat(path)
-	return errors.Is(err, fs.ErrNotExist)
 }
 
 func updateFilespath() {
