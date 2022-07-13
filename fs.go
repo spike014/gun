@@ -25,7 +25,7 @@ func getExcutePath() (string, error) {
 		return "", err
 	}
 	log.Println("Working on", ex)
-	return filepath.Dir(ex), nil
+	return ex, nil
 }
 
 func updateFilespath() {
